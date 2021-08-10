@@ -32,6 +32,8 @@ dependencies:
   flutter_staggered_grid_view: any
   transparent_image: any
   dio: any
+  video_player: ^2.1.12
+  file_picker: ^3.0.4
 
 dev_dependencies:
   flutter_test:
@@ -49,7 +51,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
+  assets:
+    - assets/volvo.mp4
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

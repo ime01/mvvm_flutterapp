@@ -36,7 +36,6 @@ class _HomeViewState extends State<HomeView> {
                 color: Colors.grey,
                 child: FadeInImage.memoryNetwork(placeholder:kTransparentImage,
                     image: '${listPictureViewModel.pictures![index].picSumModel!.downloadUrl}',
-                    // image: '${listPictureViewModel.pictures?[index].picSumModel?.downloadUrl}',
                   fit: BoxFit.cover,),
               ),
               
