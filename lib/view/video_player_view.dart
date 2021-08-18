@@ -23,7 +23,7 @@ class _VideoPLayerFromAssetsState extends State<VideoPLayerFromAssets> {
     controller = VideoPlayerController.asset(videoAsset)
     ..addListener(()=> setState((){}))
     ..setLooping(true)
-    ..initialize().then((_) => controller.play());
+    ..initialize().then((_) => controller.pause());
   }
 
   @override
@@ -43,6 +43,15 @@ class _VideoPLayerFromAssetsState extends State<VideoPLayerFromAssets> {
       ),
         body: Column(
           children: [
+            Center(
+              child: ElevatedButton(
+                child:Text('Open Notification View'),
+                onPressed: (){
+                  Navigator.pushNamed(context, '/notification');
+                },
+              ),
+            ),
+
             Center(
               child: ElevatedButton(
                 child:Text('Open Pictures View'),
