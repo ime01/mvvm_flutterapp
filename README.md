@@ -5,12 +5,19 @@ Also implemented is Onboarding View with multiple welcome screens.
 flutter packages used in this repo here include
 
   http
+  
   flutter_staggered_grid_view
+  
   transparent_image
+  
   dio
+  
   video_player
+  
   file_picker
+  
   flutter_local_notifications
+  
   introduction_screen
 
 
