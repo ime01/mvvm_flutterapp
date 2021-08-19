@@ -1,4 +1,17 @@
 # mvvm_flutterapp
+A flutter app that fetches photos from an Api built with MVVM design Pattern,
+Also implemented is  video player for playing video from assets, from file, or from the internet.
+Also implemented is Onboarding View with multiple welcome screens.
+flutter packages used in this repo here include
+
+  http
+  flutter_staggered_grid_view
+  transparent_image
+  dio
+  video_player
+  file_picker
+  flutter_local_notifications
+  introduction_screen
 
 
 ![Screenshot_20210819-122018](https://user-images.githubusercontent.com/44091450/130060984-034720a7-4b1c-48a9-b0c4-b0380a795daf.jpg)
