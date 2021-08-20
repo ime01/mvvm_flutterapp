@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mvvm_flutterapp/translation/language.dart';
+import 'package:mvvm_flutterapp/view/generateqr/generateqr.dart';
 import 'package:mvvm_flutterapp/view/home.dart';
 import 'package:mvvm_flutterapp/view/notification.dart';
 import 'package:mvvm_flutterapp/view/onboarding_screen_view.dart';
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         '/videofromnetwork': (context) => VideoPLayerFromNetwork(),
         '/notification': (context) => MyNotification(),
         '/videohome': (context) => VideoPLayerFromAssets(),
+        '/qrgenerator': (context) => GenerateQRPage(),
       },
       debugShowCheckedModeBanner: false,
 

@@ -154,6 +154,17 @@ class _VideoPLayerFromAssetsState extends State<VideoPLayerFromAssets> {
                 },
               ),
             ),
+
+            Center(
+              child: ElevatedButton(
+                // child:Text('Video Player From File'),
+                child:Text('Go to QR GENERATOR VIEW'),
+                onPressed: (){
+                  Navigator.pushNamed(context, '/qrgenerator');
+                },
+              ),
+            ),
+
           ],
         ),
         floatingActionButton: FloatingActionButton(
