@@ -1,8 +1,10 @@
 
 import 'package:flutter/material.dart';
+import 'package:get/get_core/get_core.dart';
 import 'package:mvvm_flutterapp/utils/video_player_widget.dart';
 // import 'package:video_player/video_player.dart';
 import 'package:video_player/video_player.dart';
+import 'package:get/get.dart';
 
 
 class VideoPLayerFromAssets extends StatefulWidget {
@@ -16,6 +18,54 @@ class _VideoPLayerFromAssetsState extends State<VideoPLayerFromAssets> {
 
   late VideoPlayerController controller;
   final videoAsset = 'assets/volvo.mp4';
+
+  final List locale = [
+    {'name':'ENGLISH', 'locale' : Locale('en', 'US')},
+    {'name':'FRENCH', 'locale' : Locale('fr', 'FR')},
+    {'name':'GERMAN', 'locale' : Locale('ge', 'GE')},
+    {'name':'SPANISH', 'locale' : Locale('es', 'ES')},
+  ];
+
+  updateLanguage(Locale locale){
+    Get.back();
+    Get.updateLocale(locale);
+  }
+
+  buildLanguageDialog(BuildContext context){
+
+    showDialog(context: context,
+      builder: (builder) {
+      return AlertDialog(
+        title: Text('Choose Your Language'),
+        content: Container(
+          width: double.maxFinite,
+          child: ListView.separated(
+              shrinkWrap: true,
+              itemBuilder: (context, index){
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: GestureDetector(child: Text(locale[index]['name']), onTap: (){
+                    print(locale[index]['name']);
+                    updateLanguage(locale[index]['locale']);
+
+                  },),
+                );
+              },
+              separatorBuilder: (context, index){
+                return Divider(
+                  color: Colors.blue,
+                );
+              },
+              itemCount: locale.length),
+        ),
+      );
+      },
+    );
+  }
+
+
+
+
 
   @override
   void initState() {
@@ -39,13 +89,15 @@ class _VideoPLayerFromAssetsState extends State<VideoPLayerFromAssets> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('VideoPlayer View'),
+        // title: Text('VideoPlayer View'),
+        title: Text('videoV'.tr),
       ),
         body: Column(
           children: [
             Center(
               child: ElevatedButton(
-                child:Text('Open Notification View'),
+                // child:Text('Open Notification View'),
+                child:Text('notiV'.tr),
                 onPressed: (){
                   Navigator.pushNamed(context, '/notification');
                 },
@@ -54,7 +106,8 @@ class _VideoPLayerFromAssetsState extends State<VideoPLayerFromAssets> {
 
             Center(
               child: ElevatedButton(
-                child:Text('Open Pictures View'),
+                // child:Text('Open Pictures View'),
+                child:Text('openP'.tr),
                 onPressed: (){
                   Navigator.pushNamed(context, '/pictures');
                 },
@@ -62,7 +115,8 @@ class _VideoPLayerFromAssetsState extends State<VideoPLayerFromAssets> {
             ),
             Center(
               child: ElevatedButton(
-                child:Text('Video Player From Network'),
+                // child:Text('Video Player From Network'),
+                child:Text('videoN'.tr),
                 onPressed: (){
                   Navigator.pushNamed(context, '/videofromnetwork');
                 },
@@ -70,7 +124,8 @@ class _VideoPLayerFromAssetsState extends State<VideoPLayerFromAssets> {
             ),
             Center(
               child: ElevatedButton(
-                child:Text('Video Player From File'),
+                // child:Text('Video Player From File'),
+                child:Text('videoF'.tr),
                 onPressed: (){
                   Navigator.pushNamed(context, '/videofromfile');
                 },
@@ -89,8 +144,36 @@ class _VideoPLayerFromAssetsState extends State<VideoPLayerFromAssets> {
                   onPressed: () => controller.setVolume(isMuted ? 1:0),
                 ),
               ),
+
+            Center(
+              child: ElevatedButton(
+                // child:Text('Video Player From File'),
+                child:Text('Change Your Language'),
+                onPressed: (){
+                  buildLanguageDialog(context);
+                },
+              ),
+            ),
+
+            Center(
+              child: ElevatedButton(
+                // child:Text('Video Player From File'),
+                child:Text('Go to QR GENERATOR VIEW'),
+                onPressed: (){
+                  Navigator.pushNamed(context, '/qrgenerator');
+                },
+              ),
+            ),
+
           ],
-        )
+        ),
+        floatingActionButton: FloatingActionButton(
+          child: new Icon(Icons.add),
+        onPressed: () {
+          buildLanguageDialog(context);
+    },
+
+    ),
     );
   }
 
