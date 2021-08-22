@@ -16,6 +16,8 @@ flutter packages used in this repo here include
   
   transparent_image
   
+  Shared Preference
+  
   dio
   
   video_player
