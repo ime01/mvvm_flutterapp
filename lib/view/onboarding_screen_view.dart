@@ -2,7 +2,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:mvvm_flutterapp/sharedprefernce/sharedpreference.dart';
 import 'package:mvvm_flutterapp/view/video_player_view.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'generateqr/generateqr.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({Key? key}) : super(key: key);
@@ -53,8 +57,13 @@ class OnBoardingScreen extends StatelessWidget {
 
       skip: Text("Skip", style: TextStyle(fontWeight: FontWeight.bold),),
 
-      onDone: () => gotoHome(context),
-      
+      // onDone: () => gotoHome(context),
+      onDone: () {
+        gotoHome(context);
+        setVisitFlag();
+      },
+
+
       done: Text('Got it', style: TextStyle(fontWeight: FontWeight.bold),),),
   );
 
@@ -70,8 +79,28 @@ class OnBoardingScreen extends StatelessWidget {
 
   );
 
-  gotoHome(context) => Navigator.of(context).pushReplacement(
-    MaterialPageRoute(builder: (_)=> VideoPLayerFromAssets()),
-  );
+  gotoHome(context) {
+    // setVisitFlag();
 
+    if(getVisitFlag() == true){
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (_)=>  VideoPLayerFromAssets()),
+
+      );
+    }else{
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (_)=> GenerateQRPage()),
+      );
+    }
+  }
+
+}
+
+getVisitFlag(){
+  var alreadyVisited = UserPreferences.getVisitingFlag() ?? false;
+  return alreadyVisited;
+}
+
+setVisitFlag()async{
+   await UserPreferences.setVisitingFlag(true);
 }

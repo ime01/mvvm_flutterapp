@@ -38,6 +38,9 @@ dependencies:
   introduction_screen: ^2.1.0
   get: ^4.3.8
   qr_flutter: ^4.0.0
+  qr_code_scanner: ^0.4.0
+  shared_preferences: ^2.0.5
+
 
 dev_dependencies:
   flutter_test:
