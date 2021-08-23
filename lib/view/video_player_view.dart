@@ -165,6 +165,15 @@ class _VideoPLayerFromAssetsState extends State<VideoPLayerFromAssets> {
               ),
             ),
 
+            Center(
+              child: ElevatedButton(
+                // child:Text('Video Player From File'),
+                child:Text('Go to QR SCANNER VIEW'),
+                onPressed: (){
+                  Navigator.pushNamed(context, '/qrcodescanner');
+                },
+              ),
+            ),
           ],
         ),
         floatingActionButton: FloatingActionButton(
