@@ -92,7 +92,10 @@ class _VideoPLayerFromAssetsState extends State<VideoPLayerFromAssets> {
         // title: Text('VideoPlayer View'),
         title: Text('videoV'.tr),
       ),
-        body: Column(
+        body: SingleChildScrollView(
+        child: Stack(
+        children:[
+         Column(
           children: [
             Center(
               child: ElevatedButton(
@@ -174,15 +177,29 @@ class _VideoPLayerFromAssetsState extends State<VideoPLayerFromAssets> {
                 },
               ),
             ),
+
+            Center(
+              child: ElevatedButton(
+                // child:Text('Video Player From File'),
+                child:Text('Go to SQFLITE NOTE SAVER'),
+                onPressed: (){
+                  Navigator.pushNamed(context, '/sqflitenotesaver');
+                },
+              ),
+            ),
           ],
         ),
-        floatingActionButton: FloatingActionButton(
-          child: new Icon(Icons.add),
-        onPressed: () {
-          buildLanguageDialog(context);
-    },
 
-    ),
+
+          // floatingActionButton: FloatingActionButton(
+          //   child: new Icon(Icons.add),
+          //   onPressed: () {
+          //     buildLanguageDialog(context);},
+          // ),
+       ],
+
+       )
+        )
     );
   }
 
