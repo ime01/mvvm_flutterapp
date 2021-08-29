@@ -5,6 +5,7 @@ import 'package:mvvm_flutterapp/sharedprefernce/sharedpreference.dart';
 import 'package:mvvm_flutterapp/translation/language.dart';
 import 'package:mvvm_flutterapp/view/generateqr/generateqr.dart';
 import 'package:mvvm_flutterapp/view/home.dart';
+import 'package:mvvm_flutterapp/view/notetaker/notewithsqlite.dart';
 import 'package:mvvm_flutterapp/view/notification.dart';
 import 'package:mvvm_flutterapp/view/onboarding_screen_view.dart';
 import 'package:mvvm_flutterapp/view/scanqrcode/qrcodescanner.dart';
@@ -41,6 +42,7 @@ class MyApp extends StatelessWidget {
         '/videohome': (context) => VideoPLayerFromAssets(),
         '/qrgenerator': (context) => GenerateQRPage(),
         '/qrcodescanner': (context) => ScanQrCode(),
+        '/sqflitenotesaver': (context) => NotesPage(),
       },
       debugShowCheckedModeBanner: false,
 
