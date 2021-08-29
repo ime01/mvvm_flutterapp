@@ -12,6 +12,8 @@ flutter packages used in this repo here include
   
   Qr Code Scanner
   
+  SQFlite
+  
   flutter_staggered_grid_view
   
   transparent_image
