@@ -4,6 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:mvvm_flutterapp/models/Note.dart';
 import 'package:mvvm_flutterapp/sqfliteflutter/sqflitedatabase.dart';
+import 'package:mvvm_flutterapp/view/notetaker/widget/note_card_widget.dart';
+
+import 'addeditnote.dart';
+import 'notedetails.dart';
 
 class NotesPage extends StatefulWidget {
   const NotesPage({Key? key}) : super(key: key);
@@ -30,11 +34,12 @@ class _NotesPageState extends State<NotesPage> {
   }
 
 
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+      backgroundColor: Colors.black,
+
       appBar: AppBar(title: Text('SQFlite NoteSaver', style: TextStyle(fontSize: 24),),
 
       actions: [Icon(Icons.search), SizedBox(width: 12)],),
@@ -53,7 +58,7 @@ class _NotesPageState extends State<NotesPage> {
         child: Icon(Icons.add),
 
         onPressed: ()async{
-          // await Navigator.of(context).push(MaterialPageRoute(builder: (context) => AddEditNote()));
+          await Navigator.of(context).push(MaterialPageRoute(builder: (context) => AddEditNote()));
 
           refreshNotes();
         },
@@ -83,8 +88,9 @@ class _NotesPageState extends State<NotesPage> {
 
        return GestureDetector(
          onTap: () async{
-           // await Navigator.of(context).push(
-           //     MaterialPageRoute(builder: (context) => NoteDetailPage(noteId: note.id! ),))
+           await Navigator.of(context).push(
+               MaterialPageRoute(builder: (context) => NoteDetailPage(noteId: note.id! ),));
+
          },
 
          child: NoteCardWidget(note: note, index: index),
@@ -95,8 +101,4 @@ class _NotesPageState extends State<NotesPage> {
 
 }
 
-NoteCardWidget({required Note note, required int  index}) {
-}
 
-// class NoteCardWidget {
-// }

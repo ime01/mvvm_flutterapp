@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:mvvm_flutterapp/models/Note.dart';
 import 'package:mvvm_flutterapp/sqfliteflutter/sqflitedatabase.dart';
 import 'package:mvvm_flutterapp/view/notetaker/addeditnote.dart';
@@ -26,9 +27,14 @@ class _NoteDetailPageState extends State<NoteDetailPage> {
 
   @override
   Widget build(BuildContext context) => Scaffold (
+
+    backgroundColor: Colors.black,
+
     appBar: AppBar(
+      title: Text('NOTE DETAILS'),
       actions: [editButton(), deleteButton()],
     ),
+
     body: isloading ? Center(child: CircularProgressIndicator(),)
         : Padding(
         padding: EdgeInsets.all(12),
@@ -44,12 +50,10 @@ class _NoteDetailPageState extends State<NoteDetailPage> {
 
             SizedBox(height: 8),
 
-            // Text(
-            //   DateFormat.yMMMd().format(note.createdTime),
-            //   style: TextStyle(
-            //   color: Colors.white38,
-            //   ),
-            // ),
+            Text(
+              DateFormat.yMMMd().format(note.createdTime),
+              style: TextStyle(color: Colors.white38,),
+            ),
 
             SizedBox(height: 8),
 
